@@ -1,6 +1,7 @@
 package com.shashank.JavaDevelopmentLearning.controller;
 
 
+import com.shashank.JavaDevelopmentLearning.model.JobPost;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,13 +14,16 @@ public class JobController {
         return "home";
     }
 
-    @PostMapping("/addjob")
+    @GetMapping("/addjob")
     public String addJob(){
         return "addJob";
     }
-    @GetMapping("/handleForm")
-    public String handleForm(){
+
+    @PostMapping("/handleForm")
+    public String handleForm(JobPost jobPost){
         return "success";
     }
+
+
 
 }
