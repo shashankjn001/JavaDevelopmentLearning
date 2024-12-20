@@ -2,26 +2,23 @@ package com.shashank.JavaDevelopmentLearning.controller;
 
 
 import com.shashank.JavaDevelopmentLearning.model.JobPost;
+import com.shashank.JavaDevelopmentLearning.service.JobService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class JobController {
 
-    @GetMapping({"/","/home"})
-    public String home(){
-        return "home";
-    }
+    @Autowired
+    private JobService service;
 
-    @GetMapping("/addjob")
-    public String addJob(){
-        return "addJob";
-    }
-
-    @PostMapping("/handleForm")
-    public String handleForm(JobPost jobPost){
-        return "success";
+    @GetMapping("jobPosts")
+    public List<JobPost> getAllJobs(){
+        return service.getAllJobs();
     }
 
 
