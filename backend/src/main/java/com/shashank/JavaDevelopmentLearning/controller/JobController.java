@@ -4,9 +4,7 @@ package com.shashank.JavaDevelopmentLearning.controller;
 import com.shashank.JavaDevelopmentLearning.model.JobPost;
 import com.shashank.JavaDevelopmentLearning.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +17,29 @@ public class JobController {
     @GetMapping("jobPosts")
     public List<JobPost> getAllJobs(){
         return service.getAllJobs();
+    }
+
+    @GetMapping("jobPost/{postId}")
+    public JobPost getJob(@PathVariable("postId") int postId){
+        return service.getJob(postId);
+    }
+
+    @PostMapping("jobPost")
+    public JobPost addJob(@RequestBody JobPost jobPost){
+        service.addJob(jobPost);
+        return service.getJob(jobPost.getPostId());
+    }
+
+    @PutMapping("jobPost")
+    public JobPost updateJob(@RequestBody JobPost jobPost){
+        service.updateJob(jobPost);
+        return service.getJob(jobPost.getPostId());
+    }
+
+    @DeleteMapping("jobPost/{postId}")
+    public String deleteJob(@PathVariable("postId") int postId){
+        service.deleteJob(postId);
+        return "Deleted SuccessFully";
     }
 
 
