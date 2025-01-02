@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-JavaDevelopmentLearningApplication<JavaDevelopmentLearning>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.shashank.JavaDevelopmentLearning.JavaDevelopmentLearningApplication",
+            "projectName": "JavaDevelopmentLearning",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
